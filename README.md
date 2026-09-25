@@ -8,7 +8,7 @@ A desktop app that translates academic papers, design codes, and general PDFs in
 languages) **while preserving the original layout**, and exports to PDF, Hangul (HWPX), and Word (DOCX)
 (macOS · Windows).
 
-**이 저장소는 설치 파일만 배포합니다.** 앱 소스는 따로 관리합니다.
+**이 저장소는 설치 파일만 배포합니다.** 앱 소스는 [mikwon3/PDF-translator](https://github.com/mikwon3/PDF-translator) 에 있습니다.
 
 ## 내려받기 · Download
 
@@ -51,6 +51,8 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
   재실행, Windows 는 설치 프로그램이 이어받음). 릴리스 정보는 Ed25519 서명으로, 설치본은 SHA-256
   으로 검증합니다.
 
-## 표기 · Notices
+## 라이선스 · License
 
-함께 담긴 제3자 구성요소와 라이선스는 [NOTICE.md](NOTICE.md) 를 참조하세요.
+PaperKo 는 **GNU Affero General Public License v3.0 (AGPL-3.0)** 으로 배포합니다
+(전문 [LICENSE](LICENSE)). 전체 소스는 [mikwon3/PDF-translator](https://github.com/mikwon3/PDF-translator)
+에서 받을 수 있습니다. 함께 담긴 제3자 구성요소는 [NOTICE.md](NOTICE.md) 를 참조하세요.
