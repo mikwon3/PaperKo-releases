@@ -51,6 +51,21 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
   재실행, Windows 는 설치 프로그램이 이어받음). 릴리스 정보는 Ed25519 서명으로, 설치본은 SHA-256
   으로 검증합니다.
 
+## 변경 이력 · Releases
+
+전체 목록은 [Releases](https://github.com/mikwon3/PaperKo-releases/releases) 를 참조하세요.
+
+### [1.8.5](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.5)
+표기·문서 정리 판(엔진·기능은 1.8.4와 동일).
+- 개발자·저작권 표기를 **Minho Kwon (@mikwon3)** · mikwon@me.com · **AGPL-3.0** 으로 통일(앱 정보 및 macOS·Windows 설치본 속성), 부서·소속 항목 정리.
+- 검증 저널 6종 추가(문서) — Structures·Journal of Building Engineering(Elsevier), Journal of Structural Engineering(ASCE), Advances in Structural Engineering(SAGE), Earthquake Engineering & Structural Dynamics(Wiley), Journal of Applied Mathematics(Hindawi). 총 8개 발행 계열.
+
+### [1.8.4](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.4)
+첫 공개 판.
+- **온라인 자동 업데이트** — 시작 시 새 판 확인(하루 1회, 끄기·건너뛰기 가능) 후 서명된 릴리스를 받아 스스로 설치. 릴리스는 Ed25519 서명, 설치본은 SHA-256 으로 검증.
+- **AGPL-3.0 공개** — 소스를 [mikwon3/PDF-translator](https://github.com/mikwon3/PDF-translator) 에 공개.
+- 레이아웃 보존 번역 PDF, HWPX·DOCX 저장, 일반 문서 배치·이어받기, 다국어, OCR, 원격/로컬(오프라인) LLM.
+
 ## 라이선스 · License
 
 **개발:** Minho Kwon ([@mikwon3](https://github.com/mikwon3)) · mikwon@me.com · © 2026 Minho Kwon
