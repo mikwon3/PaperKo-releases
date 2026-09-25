@@ -53,6 +53,8 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 ## 라이선스 · License
 
+**개발:** Minho Kwon ([@mikwon3](https://github.com/mikwon3)) · kwonm@gnu.ac.kr · © 2026 Minho Kwon
+
 PaperKo 는 **GNU Affero General Public License v3.0 (AGPL-3.0)** 으로 배포합니다
 (전문 [LICENSE](LICENSE)). 전체 소스는 [mikwon3/PDF-translator](https://github.com/mikwon3/PDF-translator)
 에서 받을 수 있습니다. 함께 담긴 제3자 구성요소는 [NOTICE.md](NOTICE.md) 를 참조하세요.
