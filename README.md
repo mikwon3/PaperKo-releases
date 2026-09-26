@@ -55,6 +55,15 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 전체 목록은 [Releases](https://github.com/mikwon3/PaperKo-releases/releases) 를 참조하세요.
 
+### [1.8.6](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.6)
+빌드·배포 도구 정리 판입니다. **앱 기능·번역 동작은 1.8.5와 동일**하며, 새로 받을 기능 변화는 없습니다.
+
+#### 바뀐 점 (내부)
+
+- 릴리스 스크립트가 발행 후 릴리스 저장소 README 의 "변경 이력"을 자동으로 갱신하도록 정리했습니다.
+- 사용하지 않던 Windows MSIX 패키징 경로와 남아 있던 플레이스홀더(회사명) 흔적을 제거했습니다. 배포는
+  기존과 같이 NSIS 설치본입니다.
+
 ### [1.8.5](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.5)
 표기·문서 정리 판(엔진·기능은 1.8.4와 동일).
 - 개발자·저작권 표기를 **Minho Kwon (@mikwon3)** · mikwon@me.com · **AGPL-3.0** 으로 통일(앱 정보 및 macOS·Windows 설치본 속성), 부서·소속 항목 정리.
