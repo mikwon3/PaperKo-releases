@@ -14,10 +14,10 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 **[최신 판 받기 · Latest release →](https://github.com/mikwon3/PaperKo-releases/releases/latest)**
 
-| 운영체제 | 파일 |
+| 운영체제 | 최신 설치본 (1.8.8) |
 |---|---|
-| macOS 12 이상 (Apple Silicon) | `PaperKo-<판>-arm64.dmg` |
-| Windows 10 이상 x64 (Windows 11 에서 확인) | `PaperKo-<판>-amd64-installer.exe` |
+| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.8-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.8/PaperKo-1.8.8-arm64.dmg)** |
+| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.8-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.8/PaperKo-1.8.8-amd64-installer.exe)** |
 
 각 릴리스에 SHA-256 체크섬을 적어 둡니다. 설치 후에는 앱이 **시작할 때 새 판을 스스로 확인**해
 (하루 1회, 설정에서 끄거나 특정 판 건너뛰기 가능) 서명된 릴리스를 받아 자동으로 업데이트합니다.
