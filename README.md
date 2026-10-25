@@ -78,15 +78,6 @@ LaTeX로 인식**한 뒤, 저장 형식에 맞는 **편집 가능한 내장 수�
   릴리스는 자동으로 정리합니다(README 변경 이력도 같이 맞춤).
 - 빌드 저장소·경로 이름을 모두 `PaperKo`로 통일했습니다(소스·릴리스·로컬·Windows 빌드 폴더).
 
-### [1.8.6](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.6)
-빌드·배포 도구 정리 판입니다. **앱 기능·번역 동작은 1.8.5와 동일**하며, 새로 받을 기능 변화는 없습니다.
-
-#### 바뀐 점 (내부)
-
-- 릴리스 스크립트가 발행 후 릴리스 저장소 README 의 "변경 이력"을 자동으로 갱신하도록 정리했습니다.
-- 사용하지 않던 Windows MSIX 패키징 경로와 남아 있던 플레이스홀더(회사명) 흔적을 제거했습니다. 배포는
-  기존과 같이 NSIS 설치본입니다.
-
 ## 라이선스 · License
 
 **개발:** Minho Kwon ([@mikwon3](https://github.com/mikwon3)) · mikwon@me.com · © 2026 Minho Kwon
