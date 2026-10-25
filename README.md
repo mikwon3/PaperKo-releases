@@ -55,6 +55,20 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 전체 목록은 [Releases](https://github.com/mikwon3/PaperKo-releases/releases) 를 참조하세요.
 
+### [1.8.8](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.8)
+#### 수식을 제대로 인식해 내장 수식으로 저장합니다
+
+예전에는 PDF의 수식이 깨진 글자(`Aro? rpf epr …`)로 번역돼 들어갔습니다. 이제 수식을 **이미지로 읽어
+LaTeX로 인식**한 뒤, 저장 형식에 맞는 **편집 가능한 내장 수식**으로 변환합니다.
+
+- **Word(.docx)** → Word 내장 수식(OMML)
+- **한글(.hwpx)** → 한글 내장 수식
+- **별행 수식**(식 10.7 등)과 **문장 속 인라인 수식** 모두 지원(인라인은 디지털 원본 PDF에서)
+- 스캔/OCR 문서의 수식도 "Equation N.N" 라벨로 찾아 인식합니다
+- 인식은 **비전 지원 LLM**(Qwen-VL·GPT-4o·Claude·Gemini 등)으로 하며, 비전 미지원 환경을 위해
+  **오프라인 수식 OCR**(ONNX)을 기본 번들로 포함했습니다. 둘 다 안 되면 깨진 글자 대신 **원본 수식
+  이미지**를 보존합니다.
+
 ### [1.8.7](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.7)
 빌드·배포 도구 정리 판입니다. **앱 기능·번역 동작은 1.8.6과 동일**하며, 새로 받을 기능 변화는 없습니다.
 
