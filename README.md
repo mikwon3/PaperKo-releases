@@ -14,10 +14,10 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 **[최신 판 받기 · Latest release →](https://github.com/mikwon3/PaperKo-releases/releases/latest)**
 
-| 운영체제 | 최신 설치본 (1.8.8) |
+| 운영체제 | 최신 설치본 (1.8.9) |
 |---|---|
-| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.8-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.8/PaperKo-1.8.8-arm64.dmg)** |
-| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.8-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.8/PaperKo-1.8.8-amd64-installer.exe)** |
+| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.9-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.9/PaperKo-1.8.9-arm64.dmg)** |
+| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.9-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.9/PaperKo-1.8.9-amd64-installer.exe)** |
 
 각 릴리스에 SHA-256 체크섬을 적어 둡니다. 설치 후에는 앱이 **시작할 때 새 판을 스스로 확인**해
 (하루 1회, 설정에서 끄거나 특정 판 건너뛰기 가능) 서명된 릴리스를 받아 자동으로 업데이트합니다.
@@ -55,6 +55,13 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 전체 목록은 [Releases](https://github.com/mikwon3/PaperKo-releases/releases) 를 참조하세요.
 
+### [1.8.9](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.9)
+#### 목록이 많은 문서(설계기준·시방서)의 번역 정렬 개선
+
+a)·b)·c)… / i)·ii)… 같은 **번호·문자 목록**이 빽빽한 스캔 문서에서, 목록 항목이 어긋나
+**마커가 번역되지 않은 채 남거나 번역문이 엉뚱한 항목 밑에 붙던 문제**를 고쳤습니다. 각 목록
+항목이 자신의 이어지는 줄까지 하나로 묶여 올바르게 번역·배치됩니다. (CSA S806 등에서 확인)
+
 ### [1.8.8](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.8)
 #### 수식을 제대로 인식해 내장 수식으로 저장합니다
 
@@ -68,15 +75,6 @@ LaTeX로 인식**한 뒤, 저장 형식에 맞는 **편집 가능한 내장 수�
 - 인식은 **비전 지원 LLM**(Qwen-VL·GPT-4o·Claude·Gemini 등)으로 하며, 비전 미지원 환경을 위해
   **오프라인 수식 OCR**(ONNX)을 기본 번들로 포함했습니다. 둘 다 안 되면 깨진 글자 대신 **원본 수식
   이미지**를 보존합니다.
-
-### [1.8.6](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.6)
-빌드·배포 도구 정리 판입니다. **앱 기능·번역 동작은 1.8.5와 동일**하며, 새로 받을 기능 변화는 없습니다.
-
-#### 바뀐 점 (내부)
-
-- 릴리스 스크립트가 발행 후 릴리스 저장소 README 의 "변경 이력"을 자동으로 갱신하도록 정리했습니다.
-- 사용하지 않던 Windows MSIX 패키징 경로와 남아 있던 플레이스홀더(회사명) 흔적을 제거했습니다. 배포는
-  기존과 같이 NSIS 설치본입니다.
 
 ## 라이선스 · License
 
