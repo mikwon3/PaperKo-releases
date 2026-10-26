@@ -14,10 +14,10 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 **[최신 판 받기 · Latest release →](https://github.com/mikwon3/PaperKo-releases/releases/latest)**
 
-| 운영체제 | 최신 설치본 (1.8.9) |
+| 운영체제 | 최신 설치본 (1.8.10) |
 |---|---|
-| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.9-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.9/PaperKo-1.8.9-arm64.dmg)** |
-| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.9-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.9/PaperKo-1.8.9-amd64-installer.exe)** |
+| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.10-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.10/PaperKo-1.8.10-arm64.dmg)** |
+| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.10-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.10/PaperKo-1.8.10-amd64-installer.exe)** |
 
 각 릴리스에 SHA-256 체크섬을 적어 둡니다. 설치 후에는 앱이 **시작할 때 새 판을 스스로 확인**해
 (하루 1회, 설정에서 끄거나 특정 판 건너뛰기 가능) 서명된 릴리스를 받아 자동으로 업데이트합니다.
@@ -55,26 +55,23 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 전체 목록은 [Releases](https://github.com/mikwon3/PaperKo-releases/releases) 를 참조하세요.
 
+### [1.8.10](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.10)
+#### 번역이 바로 시작되도록 고쳤습니다
+
+수식이 많은 문서에서 **번역 버튼을 눌러도 한참 진행되지 않던 문제**를 고쳤습니다. 1.8.8부터 추가된
+수식 인식이 번역을 시작하기 전에 모두 돌아가면서(수식 많은 문서는 1분 이상) 멈춘 것처럼 보였습니다.
+
+이제 수식 인식은 **한글(HWPX)·Word(DOCX)로 내보낼 때** 수행합니다. 번역은 곧바로 시작되고, 내장
+수식은 내보내는 문서에 예전처럼 그대로 들어갑니다.
+
+(함께: 번호·문자 목록이 빽빽한 스캔 문서의 번역 정렬 개선 — 1.8.9에서 반영.)
+
 ### [1.8.9](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.9)
 #### 목록이 많은 문서(설계기준·시방서)의 번역 정렬 개선
 
 a)·b)·c)… / i)·ii)… 같은 **번호·문자 목록**이 빽빽한 스캔 문서에서, 목록 항목이 어긋나
 **마커가 번역되지 않은 채 남거나 번역문이 엉뚱한 항목 밑에 붙던 문제**를 고쳤습니다. 각 목록
 항목이 자신의 이어지는 줄까지 하나로 묶여 올바르게 번역·배치됩니다. (CSA S806 등에서 확인)
-
-### [1.8.8](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.8)
-#### 수식을 제대로 인식해 내장 수식으로 저장합니다
-
-예전에는 PDF의 수식이 깨진 글자(`Aro? rpf epr …`)로 번역돼 들어갔습니다. 이제 수식을 **이미지로 읽어
-LaTeX로 인식**한 뒤, 저장 형식에 맞는 **편집 가능한 내장 수식**으로 변환합니다.
-
-- **Word(.docx)** → Word 내장 수식(OMML)
-- **한글(.hwpx)** → 한글 내장 수식
-- **별행 수식**(식 10.7 등)과 **문장 속 인라인 수식** 모두 지원(인라인은 디지털 원본 PDF에서)
-- 스캔/OCR 문서의 수식도 "Equation N.N" 라벨로 찾아 인식합니다
-- 인식은 **비전 지원 LLM**(Qwen-VL·GPT-4o·Claude·Gemini 등)으로 하며, 비전 미지원 환경을 위해
-  **오프라인 수식 OCR**(ONNX)을 기본 번들로 포함했습니다. 둘 다 안 되면 깨진 글자 대신 **원본 수식
-  이미지**를 보존합니다.
 
 ## 라이선스 · License
 
