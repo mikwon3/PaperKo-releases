@@ -14,10 +14,10 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 **[최신 판 받기 · Latest release →](https://github.com/mikwon3/PaperKo-releases/releases/latest)**
 
-| 운영체제 | 최신 설치본 (1.8.11) |
+| 운영체제 | 최신 설치본 (1.8.12) |
 |---|---|
-| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.11-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.11/PaperKo-1.8.11-arm64.dmg)** |
-| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.11-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.11/PaperKo-1.8.11-amd64-installer.exe)** |
+| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.12-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.12/PaperKo-1.8.12-arm64.dmg)** |
+| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.12-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.12/PaperKo-1.8.12-amd64-installer.exe)** |
 
 각 릴리스에 SHA-256 체크섬을 적어 둡니다. 설치 후에는 앱이 **시작할 때 새 판을 스스로 확인**해
 (하루 1회, 설정에서 끄거나 특정 판 건너뛰기 가능) 서명된 릴리스를 받아 자동으로 업데이트합니다.
@@ -55,6 +55,21 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 전체 목록은 [Releases](https://github.com/mikwon3/PaperKo-releases/releases) 를 참조하세요.
 
+### [1.8.12](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.12)
+#### 짧은 문장 조각이 번역에서 빠지지 않습니다
+
+긴 문서에서 **짧은 문장 조각이나 목록 이어지는 항목**(예: `c) longitudinal and transverse ...`,
+`members, and ...;`)이 **영어 그대로 남던 문제**를 고쳤습니다. 이런 조각은 문맥 없이 단독으로 번역
+모델에 주어지면 모델이 "이미 괜찮다"고 보고 그대로 돌려주거나, 추론형 모델에서는 숨은 추론에 예산을
+다 써 빈 응답을 내놓곤 했습니다.
+
+이제 이런 블록을 **"조각이라도 반드시 번역하라"는 지시와 넉넉한 토큰으로 한 번 더 재시도**합니다. 절
+제목에만 있던 재시도를 본문 문단에도 적용한 것으로, 재번역해도 고쳐지지 않던 블록들이 복구됩니다.
+
+> **참고:** 스캔/OCR 문서에서 **가로로 회전된 표**는 OCR이 글자를 뒤집어 읽어(예: `used on project`
+> → `yafoid uo pasn`) 원문 자체가 판독 불가능할 수 있습니다. 이런 블록은 원문을 읽을 수 없어 번역되지
+> 않으며, 지어내지 않고 원문을 그대로 둡니다. 회전되지 않은 원본 PDF를 쓰는 것이 가장 좋습니다.
+
 ### [1.8.11](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.11)
 #### 텍스트 레이어가 깨진 페이지를 다시 읽습니다
 
@@ -68,17 +83,6 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 > **팁:** 가장 좋은 품질은 **원본 PDF 전체를 그대로 번역**하는 것입니다. 추출한 일부 페이지는 레이어가
 > 깨져 OCR로 폴백되므로 품질이 다소 낮아질 수 있습니다.
-
-### [1.8.10](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.10)
-#### 번역이 바로 시작되도록 고쳤습니다
-
-수식이 많은 문서에서 **번역 버튼을 눌러도 한참 진행되지 않던 문제**를 고쳤습니다. 1.8.8부터 추가된
-수식 인식이 번역을 시작하기 전에 모두 돌아가면서(수식 많은 문서는 1분 이상) 멈춘 것처럼 보였습니다.
-
-이제 수식 인식은 **한글(HWPX)·Word(DOCX)로 내보낼 때** 수행합니다. 번역은 곧바로 시작되고, 내장
-수식은 내보내는 문서에 예전처럼 그대로 들어갑니다.
-
-(함께: 번호·문자 목록이 빽빽한 스캔 문서의 번역 정렬 개선 — 1.8.9에서 반영.)
 
 ## 라이선스 · License
 
