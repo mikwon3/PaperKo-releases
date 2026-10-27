@@ -14,10 +14,10 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 **[최신 판 받기 · Latest release →](https://github.com/mikwon3/PaperKo-releases/releases/latest)**
 
-| 운영체제 | 최신 설치본 (1.8.10) |
+| 운영체제 | 최신 설치본 (1.8.11) |
 |---|---|
-| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.10-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.10/PaperKo-1.8.10-arm64.dmg)** |
-| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.10-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.10/PaperKo-1.8.10-amd64-installer.exe)** |
+| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.11-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.11/PaperKo-1.8.11-arm64.dmg)** |
+| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.11-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.11/PaperKo-1.8.11-amd64-installer.exe)** |
 
 각 릴리스에 SHA-256 체크섬을 적어 둡니다. 설치 후에는 앱이 **시작할 때 새 판을 스스로 확인**해
 (하루 1회, 설정에서 끄거나 특정 판 건너뛰기 가능) 서명된 릴리스를 받아 자동으로 업데이트합니다.
@@ -55,6 +55,20 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 전체 목록은 [Releases](https://github.com/mikwon3/PaperKo-releases/releases) 를 참조하세요.
 
+### [1.8.11](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.11)
+#### 텍스트 레이어가 깨진 페이지를 다시 읽습니다
+
+일부 PDF는 **글꼴 정보가 손상돼** 글자가 암호처럼 추출됩니다(`Transverse` → `BQ&Z_;"Q_"`). 이런
+페이지는 번역이 안 된 채 남거나, 기호가 많아 수식으로 잘못 분류돼 빠지곤 했습니다. 특히 다른 도구로
+**한두 페이지만 추출·재저장한 PDF**에서 자주 나타납니다.
+
+이제 이런 페이지를 **자동으로 감지**해(라틴 문자인데 읽을 수 있는 단어가 거의 없음) 손상된 텍스트
+레이어를 버리고 **OCR로 다시 읽습니다.** 깨끗한 페이지는 그대로 두므로 기존 문서의 품질에는 영향이
+없습니다.
+
+> **팁:** 가장 좋은 품질은 **원본 PDF 전체를 그대로 번역**하는 것입니다. 추출한 일부 페이지는 레이어가
+> 깨져 OCR로 폴백되므로 품질이 다소 낮아질 수 있습니다.
+
 ### [1.8.10](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.10)
 #### 번역이 바로 시작되도록 고쳤습니다
 
@@ -65,13 +79,6 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 수식은 내보내는 문서에 예전처럼 그대로 들어갑니다.
 
 (함께: 번호·문자 목록이 빽빽한 스캔 문서의 번역 정렬 개선 — 1.8.9에서 반영.)
-
-### [1.8.9](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.9)
-#### 목록이 많은 문서(설계기준·시방서)의 번역 정렬 개선
-
-a)·b)·c)… / i)·ii)… 같은 **번호·문자 목록**이 빽빽한 스캔 문서에서, 목록 항목이 어긋나
-**마커가 번역되지 않은 채 남거나 번역문이 엉뚱한 항목 밑에 붙던 문제**를 고쳤습니다. 각 목록
-항목이 자신의 이어지는 줄까지 하나로 묶여 올바르게 번역·배치됩니다. (CSA S806 등에서 확인)
 
 ## 라이선스 · License
 
