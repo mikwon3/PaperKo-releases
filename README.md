@@ -14,10 +14,10 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 **[최신 판 받기 · Latest release →](https://github.com/mikwon3/PaperKo-releases/releases/latest)**
 
-| 운영체제 | 최신 설치본 (1.8.14) |
+| 운영체제 | 최신 설치본 (1.8.15) |
 |---|---|
-| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.14-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.14/PaperKo-1.8.14-arm64.dmg)** |
-| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.14-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.14/PaperKo-1.8.14-amd64-installer.exe)** |
+| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.15-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.15/PaperKo-1.8.15-arm64.dmg)** |
+| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.15-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.15/PaperKo-1.8.15-amd64-installer.exe)** |
 
 각 릴리스에 SHA-256 체크섬을 적어 둡니다. 설치 후에는 앱이 **시작할 때 새 판을 스스로 확인**해
 (하루 1회, 설정에서 끄거나 특정 판 건너뛰기 가능) 서명된 릴리스를 받아 자동으로 업데이트합니다.
@@ -55,6 +55,22 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 전체 목록은 [Releases](https://github.com/mikwon3/PaperKo-releases/releases) 를 참조하세요.
 
+### [1.8.15](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.15)
+#### 번역문이 겹쳐 보이던 문제 수정
+
+스캔·OCR 문서에서 일부 페이지의 **번역문 여러 줄이 서로 겹쳐 뭉개져 보이던 문제**를 고쳤습니다.
+
+OCR 과정에서 같은 본문 영역이 **두 번 잡히는 경우**(같은 문단을 중복 인식하거나, 소제목이
+앞뒤 문단 상자에 겹쳐 들어가는 경우)가 있었습니다. 이때 두 번역문이 같은 자리에 겹쳐 그려져
+글자가 뒤엉켜 보였습니다.
+
+이제 한 번역 영역이 더 큰 영역 안에 대부분 포함되면, **큰 쪽만 그대로 두고 겹치는 작은 쪽은
+다시 그리지 않습니다**(중복 내용은 보통 다른 위치에 이미 정상적으로 들어가 있습니다). 2단
+레이아웃이나 정상적으로 떨어져 있는 문단은 전혀 영향을 받지 않습니다.
+
+이미 번역해 둔 문서도 **다시 번역할 필요 없이 "PDF로 저장"만 다시 누르면** 재조판되어 겹침이
+사라집니다.
+
 ### [1.8.14](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.14)
 #### 한글(HWPX)·Word(DOCX) 저장이 멈추지 않습니다
 
@@ -71,23 +87,6 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 문서를 연 뒤 번역하지 않아도 **"번역 없이 저장"** 으로 PDF 를 편집 가능한 한글(HWPX)·Word(DOCX)
 문서로 바로 저장할 수 있습니다. 원문 그대로 흐름 문서로 변환되며, 이때 **수식은 그림 형태로** 그대로
 들어갑니다(번역이 없으므로 수식 인식은 생략). 문서 길이·수식 개수와 무관하게 즉시 저장됩니다.
-
-### [1.8.13](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.13)
-#### macOS 설치본이 실제로 최신 번역 엔진을 싣습니다 (중요)
-
-1.8.11 · 1.8.12 의 macOS 설치본은 앱 버전만 올라갔을 뿐 **안에 들어간 번역 엔진은 1.8.10 그대로**였습니다.
-빌드가 번들된 Python 엔진을 소스에서 새로 설치하지 않고 예전 것을 재사용했기 때문입니다. 그래서 그 두
-판에서 **번역 관련 수정이 실제로는 적용되지 않았습니다.** (Windows 설치본은 매번 엔진을 새로 담아 영향이
-없었습니다.)
-
-이 판부터 macOS 빌드는 **매번 최신 엔진을 다시 담습니다.** 그 결과 아래 수정이 이제 실제로 동작합니다:
-
-- **짧은 문장 조각·목록 이어지는 항목**이 영어로 남던 문제 — 조각 전용 재시도로 복구 (1.8.12 의도).
-- **글꼴이 깨져 글자가 암호처럼 추출되는 페이지**를 감지해 OCR 로 다시 읽기 (1.8.11 의도).
-
-> macOS 사용자는 이 판으로 올리면 번역 엔진까지 실제로 최신이 됩니다. 업데이트 후 그 문서를 **처음부터
-> 다시 번역**하면 이전에 영어로 남던 블록들이 번역됩니다. (가로로 회전된 표는 OCR 원문이 깨져 있어 여전히
-> 번역되지 않을 수 있으며, 이는 회전되지 않은 원본 PDF 가 필요합니다.)
 
 ## 라이선스 · License
 
