@@ -14,10 +14,10 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 **[최신 판 받기 · Latest release →](https://github.com/mikwon3/PaperKo-releases/releases/latest)**
 
-| 운영체제 | 최신 설치본 (1.8.15) |
+| 운영체제 | 최신 설치본 (1.8.16) |
 |---|---|
-| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.15-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.15/PaperKo-1.8.15-arm64.dmg)** |
-| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.15-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.15/PaperKo-1.8.15-amd64-installer.exe)** |
+| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.16-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.16/PaperKo-1.8.16-arm64.dmg)** |
+| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.16-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.16/PaperKo-1.8.16-amd64-installer.exe)** |
 
 각 릴리스에 SHA-256 체크섬을 적어 둡니다. 설치 후에는 앱이 **시작할 때 새 판을 스스로 확인**해
 (하루 1회, 설정에서 끄거나 특정 판 건너뛰기 가능) 서명된 릴리스를 받아 자동으로 업데이트합니다.
@@ -55,6 +55,38 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 전체 목록은 [Releases](https://github.com/mikwon3/PaperKo-releases/releases) 를 참조하세요.
 
+### [1.8.16](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.16)
+#### 번역본의 글자 크기가 더 고르게 보입니다
+
+재조판(번역본 PDF 만들기) 단계에서 **본문 일부 줄이 주변보다 크게 찍혀 글자 크기가 들쭉날쭉해
+보이던 문제**를 고쳤습니다.
+
+문서 분석이 본문 한 줄을 "제목"으로 잘못 분류하는 경우가 있었습니다(특히 줄마다 줄번호가 붙는
+저널 교정본에서 각 줄이 따로 잡히는 경우). 이렇게 잘못 잡힌 줄은 제목처럼 12~30% 크게 찍혀 주변
+본문과 어긋나 보였습니다.
+
+이제 "제목"으로 잡혔더라도 **실제로는 본문인 줄**(여러 줄에 걸친 문단, 긴 문장, 쉼표로 이어지거나
+"~다"로 끝나는 서술문)은 **본문 크기로 통일**해 찍습니다. 반대로 진짜 제목(짧은 표제, `2.1`·
+`3.1.1` 같은 절 번호, `표/그림` 캡션)은 그대로 조금 크게 유지됩니다. 글자 크기의 신뢰도가 낮은
+스캔·OCR 문서에서도 안전하게 동작하도록, 글자 크기 값이 아니라 블록의 모양과 문구로 판단합니다.
+
+#### 2단 논문에서 번역문이 겹쳐 보이던 문제 수정
+
+2단으로 조판된 학술지 PDF(줄번호가 붙은 Elsevier 형식 등)에서 **번역문 몇 줄이 겹쳐 찍히던
+문제**를 고쳤습니다. 세 가지 원인을 함께 바로잡았습니다.
+
+- **단(column) 인식 오류** — 페이지에 폭이 넓은 표나 그림 설명이 몇 개 있으면, 분석기가 2단을
+  1단으로 잘못 보고 좌·우 단의 읽기 순서가 뒤섞였습니다. 이제 가운데를 가로지르는 넓은 요소와
+  쪽번호는 단 판별에서 제외합니다.
+- **수식이 섞인 문단의 분리** — 분수·아래첨자·위첨자(`f'_c`, `l_d/d_b` 등)가 든 줄은 PDF가
+  내부적으로 겹치는 두 조각으로 쪼개어, 두 번역문이 같은 자리에 찍혔습니다. 이제 앞 문단 안쪽에서
+  시작하는 조각을 하나로 다시 이어 붙입니다.
+- **이웃 영역을 뚫고 늘어나던 번역문** — 번역문이 들어갈 칸을 넓힐 때 바로 아래 영역을 지나쳐
+  그 위에 겹쳐 그리던 문제를 고치고, 남는 미세한 겹침은 두 영역 사이 중간선에서 깔끔히 나눕니다.
+
+함께 들어간 1.8.15 의 겹침 방지 개선과 더불어, 겹쳐 찍히던 번역문이 사라집니다. 개선 효과는
+**문서를 다시 번역**하거나, 기존 번역본을 **"PDF로 저장"으로 다시 저장**하면 반영됩니다.
+
 ### [1.8.15](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.15)
 #### 번역문이 겹쳐 보이던 문제 수정
 
@@ -70,23 +102,6 @@ OCR 과정에서 같은 본문 영역이 **두 번 잡히는 경우**(같은 문
 
 이미 번역해 둔 문서도 **다시 번역할 필요 없이 "PDF로 저장"만 다시 누르면** 재조판되어 겹침이
 사라집니다.
-
-### [1.8.14](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.14)
-#### 한글(HWPX)·Word(DOCX) 저장이 멈추지 않습니다
-
-수식이 많은(특히 스캔·OCR) 문서에서 **한글/Word로 저장을 눌러도 한참 멈춰 있던 문제**를 고쳤습니다.
-저장할 때 수식 블록마다 그림을 읽어 수식으로 바꾸는 과정이 있는데, 수식으로 잘못 잡힌 블록이 많으면
-그 과정이 매우 오래 걸려 멈춘 것처럼 보였습니다.
-
-이제 수식 인식은 **시간 제한(최대 25초)** 안에서만 수행하고, 수식 후보가 너무 많으면 건너뜁니다. 인식
-하지 못한 수식은 **원래 그림 그대로** 문서에 들어가며, **저장은 항상 완료**됩니다. 저장 중에는 "문서
-파일로 변환 중…" 표시가 보입니다.
-
-#### 번역하지 않고도 한글·Word로 저장
-
-문서를 연 뒤 번역하지 않아도 **"번역 없이 저장"** 으로 PDF 를 편집 가능한 한글(HWPX)·Word(DOCX)
-문서로 바로 저장할 수 있습니다. 원문 그대로 흐름 문서로 변환되며, 이때 **수식은 그림 형태로** 그대로
-들어갑니다(번역이 없으므로 수식 인식은 생략). 문서 길이·수식 개수와 무관하게 즉시 저장됩니다.
 
 ## 라이선스 · License
 
