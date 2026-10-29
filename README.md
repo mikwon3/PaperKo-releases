@@ -14,10 +14,10 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 **[최신 판 받기 · Latest release →](https://github.com/mikwon3/PaperKo-releases/releases/latest)**
 
-| 운영체제 | 최신 설치본 (1.8.16) |
+| 운영체제 | 최신 설치본 (1.8.17) |
 |---|---|
-| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.16-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.16/PaperKo-1.8.16-arm64.dmg)** |
-| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.16-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.16/PaperKo-1.8.16-amd64-installer.exe)** |
+| **macOS** 12+ (Apple Silicon) | **[⬇ PaperKo-1.8.17-arm64.dmg](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.17/PaperKo-1.8.17-arm64.dmg)** |
+| **Windows** 10+ x64 | **[⬇ PaperKo-1.8.17-amd64-installer.exe](https://github.com/mikwon3/PaperKo-releases/releases/download/v1.8.17/PaperKo-1.8.17-amd64-installer.exe)** |
 
 각 릴리스에 SHA-256 체크섬을 적어 둡니다. 설치 후에는 앱이 **시작할 때 새 판을 스스로 확인**해
 (하루 1회, 설정에서 끄거나 특정 판 건너뛰기 가능) 서명된 릴리스를 받아 자동으로 업데이트합니다.
@@ -55,6 +55,22 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 전체 목록은 [Releases](https://github.com/mikwon3/PaperKo-releases/releases) 를 참조하세요.
 
+### [1.8.17](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.17)
+#### 한글(.hwpx)로 내보낸 문서에 엉뚱한 "책갈피"가 따라오던 문제 수정
+
+번역 결과를 **한글 문서(.hwpx)로 내보낼 때**, 문서 안에 전혀 관계없는 **책갈피(북마크)**가
+딸려 들어가 한글의 책갈피 목록에 엉뚱한 이름(예: `asad-v1.2-사용자-매뉴얼`, `ubuntu-24.04-설치`)이
+뜨던 문제를 고쳤습니다.
+
+내보내기에 쓰는 **뼈대(skeleton) 파일**이 한컴으로 만든 실제 문서라, 그 문서의 책갈피 88개가
+그대로 들어 있었습니다. 변환기가 뼈대의 문단을 **틀(template)로 복사**해 쓰는 과정에서 이 책갈피가
+만들어진 모든 .hwpx 로 따라붙었습니다(두 문단짜리 문서에서도 2개가 보였습니다).
+
+이제 뼈대를 읽어들인 **직후** 책갈피를 모두 걷어낸 뒤 틀 복사를 시작합니다. 책갈피를 이루는
+`fieldBegin`–`fieldEnd` 짝과 빈 껍데기까지 함께 제거해, 한글이 "손상된 문서"로 보고 복구를
+시도하는 일도 없습니다. 본문 텍스트는 **한 글자도 바뀌지 않습니다**. 사용자가 **직접 올린 뼈대**를
+쓸 때도 똑같이 정리됩니다.
+
 ### [1.8.16](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.16)
 #### 번역본의 글자 크기가 더 고르게 보입니다
 
@@ -86,22 +102,6 @@ languages) **while preserving the original layout**, and exports to PDF, Hangul 
 
 함께 들어간 1.8.15 의 겹침 방지 개선과 더불어, 겹쳐 찍히던 번역문이 사라집니다. 개선 효과는
 **문서를 다시 번역**하거나, 기존 번역본을 **"PDF로 저장"으로 다시 저장**하면 반영됩니다.
-
-### [1.8.15](https://github.com/mikwon3/PaperKo-releases/releases/tag/v1.8.15)
-#### 번역문이 겹쳐 보이던 문제 수정
-
-스캔·OCR 문서에서 일부 페이지의 **번역문 여러 줄이 서로 겹쳐 뭉개져 보이던 문제**를 고쳤습니다.
-
-OCR 과정에서 같은 본문 영역이 **두 번 잡히는 경우**(같은 문단을 중복 인식하거나, 소제목이
-앞뒤 문단 상자에 겹쳐 들어가는 경우)가 있었습니다. 이때 두 번역문이 같은 자리에 겹쳐 그려져
-글자가 뒤엉켜 보였습니다.
-
-이제 한 번역 영역이 더 큰 영역 안에 대부분 포함되면, **큰 쪽만 그대로 두고 겹치는 작은 쪽은
-다시 그리지 않습니다**(중복 내용은 보통 다른 위치에 이미 정상적으로 들어가 있습니다). 2단
-레이아웃이나 정상적으로 떨어져 있는 문단은 전혀 영향을 받지 않습니다.
-
-이미 번역해 둔 문서도 **다시 번역할 필요 없이 "PDF로 저장"만 다시 누르면** 재조판되어 겹침이
-사라집니다.
 
 ## 라이선스 · License
 
